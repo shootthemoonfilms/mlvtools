@@ -18,6 +18,7 @@ var (
 	extension        = flag.String("extension", "mov", "File extension")
 	threading        = flag.Bool("threading", false, "Use multi-threading")
 	keepFiles        = flag.Bool("keepfiles", true, "Keep source files after transcoding")
+	prores           = flag.Bool("prores", false, "Encode as 4:2:2 ProRes instead of CineformRAW")
 	scalingParameter string
 	wg               sync.WaitGroup
 )
@@ -130,7 +131,9 @@ func processFile(pathName, fileName string) {
 		outPath,
 	}
 
-	args = append(args, outPath)
+	if *prores {
+		args = append(args, "-422")
+	}
 	command := exec.Cmd{
 		Path: *raw2gpcfPath,
 		Args: args,

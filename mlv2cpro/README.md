@@ -11,6 +11,7 @@ Usage of ./mlv2cpro:
   -keepfiles=true: Keep source files after transcoding
   -mlvdump="./mlv_dump": Path to mlv_dump binary
   -outdir=".": Output directory
+  -prores=false: Encode as 4:2:2 ProRes instead of CineformRAW
   -raw2gpcf="./raw2gpcf": Path to raw2gpcf binary
   -threading=false: Use multi-threading
 ```
